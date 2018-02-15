@@ -15,7 +15,9 @@ namespace TechJobsConsole
             actionChoices.Add("list", "List");
 
             // Column options
-            Dictionary<string, string> columnChoices = new Dictionary<string, string>();
+            ///asdf new content here
+            //added StringComparer.InvariantCultureIgnoreCase to make searches on this dictionary case-insensitive
+            Dictionary<string, string> columnChoices = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
             columnChoices.Add("core competency", "Skill");
             columnChoices.Add("employer", "Employer");
             columnChoices.Add("location", "Location");
@@ -118,7 +120,24 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            //Console.WriteLine("printJobs is not implemented yet");
+            //asdf new content here
+
+            //loops through the dictionaries
+            foreach (Dictionary<string, string> outerLoopJobs in someJobs)
+            { 
+                //displays row of asterisks to make each set easier to read
+                Console.WriteLine("*****");
+                //loops through each key/value pair in that dictionary
+                foreach (KeyValuePair<string, string> innerLoopJob in outerLoopJobs)
+                {
+                    //displays key/value in that dictionary
+                    Console.WriteLine("{0}: {1}", innerLoopJob.Key, innerLoopJob.Value);
+                }
+                //displays another row of asterisks to make each set easier to read
+                Console.WriteLine("*****");
+
+            }
         }
     }
 }
