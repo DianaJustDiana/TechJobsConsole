@@ -16,8 +16,7 @@ namespace TechJobsConsole
 
             // Column options
             ///asdf new content here
-            //added StringComparer.InvariantCultureIgnoreCase to make searches on this dictionary case-insensitive
-            Dictionary<string, string> columnChoices = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+            Dictionary<string, string> columnChoices = new Dictionary<string, string>();
             columnChoices.Add("core competency", "Skill");
             columnChoices.Add("employer", "Employer");
             columnChoices.Add("location", "Location");
@@ -65,7 +64,7 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        //Console.WriteLine("Search all fields not yet implemented.");
                         //asdf new content here
                         searchResults = JobData.FindByValue(searchTerm);
                         PrintJobs(searchResults);

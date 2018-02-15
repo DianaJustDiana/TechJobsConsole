@@ -46,6 +46,7 @@ namespace TechJobsConsole
             // load data, if not already loaded
             LoadData();
 
+            searchTerm = searchTerm.ToLower();
             List<Dictionary<string, string>> matchingItems = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> setOfJobDetails in AllJobs)
@@ -53,7 +54,7 @@ namespace TechJobsConsole
                 foreach (KeyValuePair<string, string> singleLine in setOfJobDetails)
                 {
 
-                    if (singleLine.Value.Contains(searchTerm))
+                    if (singleLine.Value.ToLower().Contains(searchTerm))
                     {
                         matchingItems.Add(setOfJobDetails);
                     }
@@ -69,13 +70,11 @@ namespace TechJobsConsole
         {
             // load data, if not already loaded
             LoadData();
-
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
-
                 if (aValue.Contains(value))
                 {
                     jobs.Add(row);
