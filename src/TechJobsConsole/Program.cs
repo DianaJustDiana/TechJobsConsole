@@ -66,6 +66,9 @@ namespace TechJobsConsole
                     if (columnChoice.Equals("all"))
                     {
                         Console.WriteLine("Search all fields not yet implemented.");
+                        //asdf new content here
+                        searchResults = JobData.FindByValue(searchTerm);
+                        PrintJobs(searchResults);
                     }
                     else
                     {
@@ -123,20 +126,27 @@ namespace TechJobsConsole
             //Console.WriteLine("printJobs is not implemented yet");
             //asdf new content here
 
-            //loops through the dictionaries
-            foreach (Dictionary<string, string> outerLoopJobs in someJobs)
-            { 
-                //displays row of asterisks to make each set easier to read
-                Console.WriteLine("*****");
-                //loops through each key/value pair in that dictionary
-                foreach (KeyValuePair<string, string> innerLoopJob in outerLoopJobs)
-                {
-                    //displays key/value in that dictionary
-                    Console.WriteLine("{0}: {1}", innerLoopJob.Key, innerLoopJob.Value);
-                }
-                //displays another row of asterisks to make each set easier to read
-                Console.WriteLine("*****");
+            if (someJobs.Count.Equals(0))
+            {
+                Console.WriteLine("Sorry, I found no results.");
+            }
+            else
+            {
 
+                //loops through the dictionaries
+                foreach (Dictionary<string, string> outerLoopJobs in someJobs)
+                {
+                    //displays row of asterisks to make each set easier to read
+                    Console.WriteLine("*****");
+                    //loops through each key/value pair in that dictionary
+                    foreach (KeyValuePair<string, string> innerLoopJob in outerLoopJobs)
+                    {
+                        //displays key/value in that dictionary
+                        Console.WriteLine("{0}: {1}", innerLoopJob.Key, innerLoopJob.Value);
+                    }
+                    //displays another row of asterisks to make each set easier to read
+                    Console.WriteLine("*****");
+                }
             }
         }
     }
