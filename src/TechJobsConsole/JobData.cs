@@ -72,10 +72,13 @@ namespace TechJobsConsole
             LoadData();
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
+            value = value.ToLower();
+
             foreach (Dictionary<string, string> row in AllJobs)
             {
+
                 string aValue = row[column];
-                if (aValue.Contains(value))
+                if (aValue.ToLower().Contains(value))
                 {
                     jobs.Add(row);
                 }
