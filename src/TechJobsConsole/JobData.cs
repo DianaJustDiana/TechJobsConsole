@@ -57,6 +57,9 @@ namespace TechJobsConsole
                     if (singleLine.Value.ToLower().Contains(searchTerm))
                     {
                         matchingItems.Add(setOfJobDetails);
+                        //need something here to prevent duplicate entries
+                        //try break, continue, do-while, counter
+                        break;
                     }
                 }
             }
@@ -72,6 +75,7 @@ namespace TechJobsConsole
             LoadData();
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
+            //asdf new content
             value = value.ToLower();
 
             foreach (Dictionary<string, string> row in AllJobs)
